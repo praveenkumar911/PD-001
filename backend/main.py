@@ -14,9 +14,8 @@ from uuid import uuid4
 app = FastAPI()
 
 origins = [
-    "http://localhost:3000",
-    "speech-recorder.rcts.iiit.ac.in",
-    "http://speech-recorder.rcts.iiit.ac.in.s3-website.ap-south-1.amazonaws.com/",
+    "http://speech-recorder.rcts.iiit.ac.in.s3-website.ap-south-1.amazonaws.com",
+    "https://d20qi39qhcrpc2.cloudfront.net", "http://d20qi39qhcrpc2.cloudfront.net",
 ]
 app.add_middleware(
     CORSMiddleware,

@@ -7,14 +7,16 @@ import Recorder from './Recorder';
 
 
 export const Prompt = () => {
-    const [data, setData] = useState({"id":"1234567890","prompt":"Loading Text ..."})
+    var time = new Date()
+    const date_time = time.getFullYear()+'-'+time.getMonth()+"-"+time.getDate()+"--"+time.getHours()+'-'+time.getMinutes()+'-'+time.getSeconds()
+    const [data, setData] = useState({"id":"1234567890-"+date_time,"prompt":"Loading Text ..."})
     const [s3url, setS3url] = useState({})
     const handleRefresh = () => {
         window.location.reload()
     }
     useEffect(()=>{
         const fetchData = async () => {
-            await axios.get("http://43.205.226.35:8000/get_prompt")
+            await axios.get("http://43.205.226.35/get_prompt")
             .then((res) => {
                 setData(res.data)
                 setS3url({})
@@ -26,13 +28,15 @@ export const Prompt = () => {
         },[])
     useEffect(()=>{
         const getPresignedURL = async () => {
-            await axios.get(`http://43.205.226.35:8000/presigned_s3_post/${data.id}`)
+            await axios.get(`http://43.205.226.35/presigned_s3_post/${data.id}_${date_time}.wav`)
             .then((res)=>{
                 setS3url(res.data)
             }).catch((err)=>{console.log(err)})
 
         }
-        getPresignedURL()
+        if (data.id !== "1234567890-"+date_time){
+            getPresignedURL()
+        }
     },[data])
   return (
     <div style={{marginTop:"1em", marginBottom:"1em",borderRadius:"8px"}}>

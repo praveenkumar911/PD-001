@@ -30,7 +30,7 @@ export default function Recorder(props) {
     useEffect(()=>{
         const UploadS3_db = async () => {
             if (uploaded)
-            await fetch(`http://43.205.226.35:8000/insert_audio_url/${props.id}`,{
+            await fetch(`http://43.205.226.35/insert_audio_url/${props.id}`,{
                 method:"POST",
                 mode:"cors",
                 body:JSON.stringify({url:props.s3url.split('?')[0]}),
