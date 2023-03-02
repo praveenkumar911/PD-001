@@ -27,6 +27,8 @@ export default function Recorder(props) {
         const response = s3uploader(audioFile)
         setUploaded(!uploaded)
     }
+    let session_name = sessionStorage.getItem('name')
+    let session_mobile = sessionStorage.getItem('mobile')
     useEffect(()=>{
         const UploadS3_db = async () => {
             if (uploaded)
@@ -34,7 +36,7 @@ export default function Recorder(props) {
             await fetch(`http://localhost:8000/insert_audio_url/${props.id}`,{
                 method:"POST",
                 mode:"cors",
-                body:JSON.stringify({url:props.s3url.split('?')[0]}),
+                body:JSON.stringify({url:props.s3url.split('?')[0],name:session_name,mobile:session_mobile}),
                 headers: {
                     'Content-Type': 'application/json'
                 }

@@ -11,12 +11,17 @@ import { Checkbox } from '@mui/material';
 
 function App() {
   const [consent, setConsent] = useState(true)
+  const [name, setName] = useState('')
+  const [mobile, setMobile] = useState('')
   let session_consent = sessionStorage.getItem('consent')
   const ConsentClicked = (e) =>{
     e.preventDefault();
     sessionStorage.setItem("consent", "True")
+    sessionStorage.setItem("name", name)
+    sessionStorage.setItem("mobile", mobile)
     setConsent(!consent)
   }
+  console.log(name)
   return (
     <div>
       <div style={{justifyContent:"center",display: 'flex',alignItems:'center'}}>
@@ -39,8 +44,18 @@ function App() {
     <Paper elevation={0} variant="outlined" style={{justifyContent:"center", alignItems:'center',padding:"2em",backgroundColor:"#F7F6DC",borderRadius:"8px"}}>
     <Typography variant='caption' align='center' style={{color:"#111436"}}>
         <h1>Informed Consent</h1>
-        <p  style={{padding:"5px"}}>All data is collected anonymously and on a voluntary basis. We do not collect any data that can identify the user at a individual level.</p>
+        <p  style={{padding:"5px"}}>All data is collected anonymously and on a voluntary basis.</p>
         <p style={{padding:"5px"}}>The participation in the study is completely on a voluntary basis and the user may stop at any point of time.</p>
+        <form>
+          <div style={{display:"flex",justifyContent:"center", alignItems:'center'}}>
+            <h4>Name:</h4>
+            <input type="text" value={name} onChange={(e)=>setName(e.target.value)} style={{marginLeft:"10px"}}/>
+          </div>
+          <div style={{display:"flex",justifyContent:"center", alignItems:'center'}}>
+            <h4>Mobile:</h4>
+            <input type="text" value={mobile} onChange={(e)=>setMobile(e.target.value)} style={{marginLeft:"10px"}}/>
+          </div>
+        </form>
           <div style={{display:"flex",justifyContent:"center", alignItems:'center'}}>
             <Checkbox color="success" onChange={ConsentClicked} />
             <h4>I agree</h4>
