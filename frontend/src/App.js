@@ -44,7 +44,7 @@ function App() {
     <Paper elevation={0} variant="outlined" style={{justifyContent:"center", alignItems:'center',padding:"2em",backgroundColor:"#F7F6DC",borderRadius:"8px"}}>
     <Typography variant='caption' align='center' style={{color:"#111436"}}>
         <h1>Informed Consent</h1>
-        <p  style={{padding:"5px"}}>All data is collected anonymously and on a voluntary basis.</p>
+        <p  style={{padding:"5px"}}>The data collected will be used for research purposes only.</p>
         <p style={{padding:"5px"}}>The participation in the study is completely on a voluntary basis and the user may stop at any point of time.</p>
         <form>
           <div style={{display:"flex",justifyContent:"center", alignItems:'center'}}>
