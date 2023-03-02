@@ -16,7 +16,8 @@ export const Prompt = () => {
     }
     useEffect(()=>{
         const fetchData = async () => {
-            await axios.get("http://43.205.226.35/get_prompt")
+            // await axios.get("http://43.205.226.35/get_prompt")
+            await axios.get("http://localhost:8000/get_prompt")
             .then((res) => {
                 setData(res.data)
                 setS3url({})
@@ -28,7 +29,8 @@ export const Prompt = () => {
         },[])
     useEffect(()=>{
         const getPresignedURL = async () => {
-            await axios.get(`http://43.205.226.35/presigned_s3_post/${data.id}_${date_time}.wav`)
+            // await axios.get(`http://43.205.226.35/presigned_s3_post/${data.id}_${date_time}.wav`)
+            await axios.get(`http://localhost:8000/presigned_s3_post/${data.id}_${date_time}.wav`)
             .then((res)=>{
                 setS3url(res.data)
             }).catch((err)=>{console.log(err)})
