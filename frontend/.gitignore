@@ -11,6 +11,7 @@
 # production
 /build
 /build_Dec04
+/build_old
 
 # misc
 .DS_Store
