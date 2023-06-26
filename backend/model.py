@@ -6,6 +6,8 @@ from typing import List, Union
 class AudioURLs(BaseModel):
     url: str
     timestamp: Union[datetime, None] = None
+    name: str = ''
+    mobile: str = ''
 
 class Item(BaseModel):
     id : str

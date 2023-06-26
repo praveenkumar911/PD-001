@@ -11,6 +11,8 @@ from db import get_db, get_database
 from fastapi.middleware.cors import CORSMiddleware
 from s3 import create_presigned_url
 from uuid import uuid4
+import uvicorn
+
 app = FastAPI()
 
 origins = [
@@ -72,3 +74,6 @@ async def file_upload(file: UploadFile, bt:BackgroundTasks):
     f = await file.read()
     bt.add_task(db_populate(f))
     return {"message": f"{file.filename} sent for processing and DB upload"}
+
+if __name__=="__main__":
+       uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
