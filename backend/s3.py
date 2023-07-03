@@ -3,6 +3,8 @@ import boto3
 from botocore.exceptions import ClientError
 from config import *
 
+### TO PRAVEEN: Write a similar function for minio : refer https://min.io/docs/minio/linux/integrations/presigned-put-upload-via-browser.html
+
 def create_presigned_url(object_name,bucket_name="rcts-audio-data-ncert",  expiration=1000):
     """Generate a presigned URL to share an S3 object
 

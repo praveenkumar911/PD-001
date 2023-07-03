@@ -15,6 +15,8 @@ export const Prompt = () => {
         window.location.reload()
     }
     useEffect(()=>{
+        /// TO PRAVEEN: Change the backend ip , This doesnt have to be thru domain .... 
+        /// iiit's private ip for the backend should work as the frotnend and bakcend is sitting in the same host machine.
         const fetchData = async () => {
             await axios.get("http://65.0.231.212/get_prompt")
             // await axios.get("http://localhost:8000/get_prompt")
@@ -29,6 +31,9 @@ export const Prompt = () => {
         },[])
     useEffect(()=>{
         const getPresignedURL = async () => {
+            /// TO PRAVEEN: Change the backend ip , This doesnt have to be thru domain .... 
+            /// iiit's private ip for the backend should work as the frotnend and bakcend is sitting in the same host machine.
+            /// if the presignurl method is hard to implement , we can just dump to minio using privateip of minio
             await axios.get(`http://65.0.231.212/presigned_s3_post/${data.id}_${date_time}.wav`)
             // await axios.get(`http://localhost:8000/presigned_s3_post/${data.id}_${date_time}.wav`)
             .then((res)=>{
