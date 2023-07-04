@@ -1,27 +1,30 @@
+
 import logging
-import boto3
-from botocore.exceptions import ClientError
+from minio import Minio
+from minio.error import ResponseError
 from config import *
 
-### TO PRAVEEN: Write a similar function for minio : refer https://min.io/docs/minio/linux/integrations/presigned-put-upload-via-browser.html
+def create_presigned_url(object_name="pd-001", bucket_name="pd-001", expiration=1000):
+    """Generate a presigned URL to share an object in MinIO
 
-def create_presigned_url(object_name,bucket_name="rcts-audio-data-ncert",  expiration=1000):
-    """Generate a presigned URL to share an S3 object
-
-    :param bucket_name: string
     :param object_name: string
+    :param bucket_name: string
     :param expiration: Time in seconds for the presigned URL to remain valid
     :return: Presigned URL as string. If error, returns None.
     """
 
-    # Generate a presigned URL for the S3 object
-    s3_client = boto3.client('s3', aws_access_key_id = AWS_ACCESS_KEY_ID, aws_secret_access_key = AWS_SECRET_ACCESS_KEY, region_name=AWS_DEFAULT_REGION)
+    # Initialize MinIO client
+    minio_client = Minio(MINIO_ENDPOINT,
+                         access_key=MINIO_ACCESS_KEY,
+                         secret_key=MINIO_SECRET_KEY,
+                         secure=False)
+
     try:
-        response = s3_client.generate_presigned_url('put_object',
-                                                    Params={'Bucket': bucket_name,
-                                                            'Key': object_name},
-                                                    ExpiresIn=expiration)
-    except ClientError as e:
+        # Generate a presigned URL for the object in MinIO
+        response = minio_client.presigned_put_object(bucket_name,
+                                                     object_name,
+                                                     expires=expiration)
+    except ResponseError as e:
         logging.error(e)
         return None
 
