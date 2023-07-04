@@ -6,10 +6,10 @@ MONGO_ENDPOINT = os.environ.get("MONGO_ENDPOINT")
 MONGO_USERNAME = os.getenv('MONGO_USERNAME')
 MONGO_PASSWORD = os.getenv('MONGO_PASSWORD')
 MONGO_DB_NAME = os.getenv('MONGO_DB_NAME', 'AA_ASR')
-
+MINIO_ACCESS_KEY =os.getenv('MINIO_ACCESS_KEY')  
+MINIO_SECRET_KEY = os.getenv('MINIO_SECRET_KEY')
+MINIO_ENDPOINT=os.getenv('MINIO_ENDPOINT')
 LEN_AUDIO_URL = 0
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
 AWS_DEFAULT_REGION = os.getenv("AWS_DEFAULT_REGION", "ap-south-1")
-
-### TO PRAVEEN: I will share present .env file for aws deployment, please make changes on that ... 
