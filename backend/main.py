@@ -15,11 +15,11 @@ import uvicorn
 
 app = FastAPI()
 
-### TO PRAVEEN: add pl-app and pl-api domains. 
 origins = [
-    "http://speech-recorder.rcts.iiit.ac.in.s3-website.ap-south-1.amazonaws.com",
-    "https://d20qi39qhcrpc2.cloudfront.net", "http://d20qi39qhcrpc2.cloudfront.net",
+    "http://10.8.0.11/",
+    "http://10.8.0.14/",
 ]
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -77,4 +77,4 @@ async def file_upload(file: UploadFile, bt:BackgroundTasks):
     return {"message": f"{file.filename} sent for processing and DB upload"}
 
 if __name__=="__main__":
-       uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+       uvicorn.run("main:app", host="0.0.0.0", port=5601, reload=True)
