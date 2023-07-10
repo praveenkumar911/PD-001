@@ -17,7 +17,14 @@ app = FastAPI()
 
 origins = [
     "http://10.8.0.11/",
-    "http://10.8.0.14/",
+    # "http://10.8.0.14/",
+    "pl-app.iiit.ac.in",
+    "http://pl-app.iiit.ac.in",
+    "https://pl-app.iiit.ac.in",
+    "pl-api.iiit.ac.in",
+    "http://pl-api.iiit.ac.in",
+    "https://pl-api.iiit.ac.in",
+
 ]
 
 app.add_middleware(
