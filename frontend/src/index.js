@@ -9,7 +9,7 @@ import App from './App';
 import "./index.css"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <Router basename='/rcts/speech-collection/'>
+    <Router basename='/rcts/speech-collection'>
         {/* <Switch>
             <Route path="/" component={App} />
         </Switch> */}
