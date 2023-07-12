@@ -1,10 +1,9 @@
-
 import logging
 from minio import Minio
-from minio.error import ResponseError
+from urllib3.exceptions import ResponseError
 from config import *
 
-def create_presigned_url(object_name="pd-001", bucket_name="pd-001", expiration=1000):
+def create_presigned_url(object_name, bucket_name="rcts-audio-data-ncert", expiration=1000):
     """Generate a presigned URL to share an object in MinIO
 
     :param object_name: string
@@ -30,3 +29,4 @@ def create_presigned_url(object_name="pd-001", bucket_name="pd-001", expiration=
 
     # The response contains the presigned URL
     return response
+
