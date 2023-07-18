@@ -1,0 +1,10 @@
+
+MINIO_ACCESS_KEY = "SEpDeVcMFcCPxSMU"  
+MINIO_SECRET_KEY = "VLC6Cze0ecdFAtKK7FRvkbhTjVnPkZRu"
+MINIO_ENDPOINT="10.8.0.15:9090/"
+
+MONGO_ENDPOINT = "rcts.9vufk18.mongodb.net"
+MONGO_USERNAME =  "syedfquadri"
+MONGO_PASSWORD =  "syedfquadri"
+MONGO_DB_NAME =  "AA_ASR"
+ 

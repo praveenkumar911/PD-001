@@ -33,7 +33,7 @@ export default function Recorder(props) {
         const UploadS3_db = async () => {
             if (uploaded)
             // await fetch(`http://43.205.226.35/insert_audio_url/${props.id}`,{
-            await fetch(`http://localhost:8000/insert_audio_url/${props.id}`,{
+            await fetch(`https://pl-api.iiit.ac.in/rcts/speech-collection/insert_audio_url/${props.id}`,{
                 method:"POST",
                 mode:"cors",
                 body:JSON.stringify({url:props.s3url.split('?')[0],name:session_name,mobile:session_mobile}),
