@@ -24,6 +24,7 @@ origins = [
     "pl-api.iiit.ac.in",
     "http://pl-api.iiit.ac.in",
     "https://pl-api.iiit.ac.in",
+    "http://localhost:3000"
 
 ]
 
