@@ -68,8 +68,8 @@ export default function Recorder(props) {
   useEffect(() => {
     const UploadMinIO_db = async () => {
       if (uploaded) {
-        await fetch(`http://localhost:5601/insert_audio_url/${props.id}`, {
-         //  await fetch(`https://pl-api.iiit.ac.in/rcts/speech-collection/insert_audio_url/${props.id}`,{
+        //await fetch(`http://localhost:5601/insert_audio_url/${props.id}`, {
+           await fetch(`https://pl-api.iiit.ac.in/rcts/speech-collection/insert_audio_url/${props.id}`,{
           method: 'POST',
           mode: 'cors',
           body: JSON.stringify({
