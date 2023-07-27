@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/rcts/speech-collection/static/css/main.21b8f88a.css",
+    "main.js": "/rcts/speech-collection/static/js/main.dcd7b949.js",
+    "static/media/rcts_logo.png": "/rcts/speech-collection/static/media/rcts_logo.baa31468b2c6f7b96574.png",
+    "static/media/iiit_logo.png": "/rcts/speech-collection/static/media/iiit_logo.46b5cf55e50e9deef786.png",
+    "index.html": "/rcts/speech-collection/index.html",
+    "main.21b8f88a.css.map": "/rcts/speech-collection/static/css/main.21b8f88a.css.map",
+    "main.dcd7b949.js.map": "/rcts/speech-collection/static/js/main.dcd7b949.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.21b8f88a.css",
+    "static/js/main.dcd7b949.js"
+  ]
+}
