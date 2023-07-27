@@ -16,8 +16,8 @@ export const Prompt = () => {
     }
     useEffect(()=>{
         const fetchData = async () => {
-           // await axios.get("https://pl-api.iiit.ac.in/rcts/speech-collection/get_prompt")
-             await axios.get("http://localhost:5601/get_prompt")
+            await axios.get("https://pl-api.iiit.ac.in/rcts/speech-collection/get_prompt")
+           //  await axios.get("http://localhost:5601/get_prompt")
             .then((res) => {
                 setData(res.data)
                 setS3url({})
@@ -29,8 +29,8 @@ export const Prompt = () => {
         },[])
     useEffect(()=>{
         const getPresignedURL = async () => {
-           //await axios.get(`https://pl-api.iiit.ac.in/rcts/speech-collection/presigned_s3_post/${data.id}_${date_time}.wav`)
-             await axios.get(`http://localhost:5601/presigned_s3_post/${data.id}_${date_time}.wav`)
+           await axios.get(`https://pl-api.iiit.ac.in/rcts/speech-collection/presigned_s3_post/${data.id}_${date_time}.wav`)
+           //  await axios.get(`http://localhost:5601/presigned_s3_post/${data.id}_${date_time}.wav`)
             .then((res)=>{
                 setS3url(res.data)
             }).catch((err)=>{console.log(err)})
