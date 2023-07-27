@@ -2,13 +2,14 @@ import logging
 from minio import Minio
 from urllib3.exceptions import ResponseError
 from config import *
+from datetime import timedelta
 
-def create_presigned_url(object_name, bucket_name="rcts-audio-data-ncert", expiration=1000):
+def create_presigned_url(object_name, bucket_name="rcts-audio-data-ncert", expiration=timedelta(seconds=1000)):
     """Generate a presigned URL to share an object in MinIO
 
     :param object_name: string
     :param bucket_name: string
-    :param expiration: Time in seconds for the presigned URL to remain valid
+    :param expiration: Time duration for the presigned URL to remain valid (as timedelta)
     :return: Presigned URL as string. If error, returns None.
     """
 
@@ -29,4 +30,3 @@ def create_presigned_url(object_name, bucket_name="rcts-audio-data-ncert", expir
 
     # The response contains the presigned URL
     return response
-

@@ -23,8 +23,8 @@ origins = [
     "https://pl-app.iiit.ac.in",
     "pl-api.iiit.ac.in",
     "http://pl-api.iiit.ac.in",
+    "http://localhost:3000",
     "https://pl-api.iiit.ac.in",
-    "http://localhost:3000"
 
 ]
 
